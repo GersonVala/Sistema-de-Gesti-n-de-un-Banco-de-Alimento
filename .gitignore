@@ -1,0 +1,17 @@
+# Dependencias
+node_modules/
+
+# Variables de entorno (NUNCA se suben)
+.env
+
+# Build y reportes
+dist/
+coverage/
+
+# Logs
+logs/
+*.log
+
+# Por ahora no se suben: diagrama UML y consigna del TP
+docs/diagrama-clases.drawio
+/TP Final*.pdf
