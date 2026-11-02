@@ -1,12 +1,4 @@
-import { RESUMEN_PANEL_EJEMPLO } from "./datosEjemplo";
-
-export const ESTADO_ENTREGA = {
-  PENDIENTE: "PENDIENTE",
-  ENTREGADA: "ENTREGADA",
-  CANCELADA: "CANCELADA",
-} as const;
-
-export type EstadoEntrega = (typeof ESTADO_ENTREGA)[keyof typeof ESTADO_ENTREGA];
+import type { EstadoEntrega } from "./entregas";
 
 // cuanto hay de cada producto (suma de los lotes no vencidos)
 export interface StockProducto {
@@ -37,7 +29,8 @@ export interface ResumenPanel {
   lotesPorVencer: LoteAVencer[];
 }
 
-// HOY: datos de ejemplo. DESPUES: llamada a la api, la pantalla no cambia
+// PENDIENTE: el back todavia no tiene la ruta del resumen
+// cuando este, aca va la llamada a la api y la pantalla no cambia. mientras tanto devuelve todo vacio
 export async function obtenerResumenPanel(): Promise<ResumenPanel> {
-  return RESUMEN_PANEL_EJEMPLO;
+  return { stock: [], proximasEntregas: [], lotesPorVencer: [] };
 }

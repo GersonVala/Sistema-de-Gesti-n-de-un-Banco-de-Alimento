@@ -8,17 +8,7 @@ import {
   type ResumenPanel,
   type StockProducto,
 } from "../services/panel";
-
-// pasa la fecha ISO a formato argentino (dd/mm/aaaa)
-function formatearFecha(iso: string): string {
-  return new Date(iso).toLocaleDateString("es-AR");
-}
-
-// cuantos dias faltan para una fecha (ceil redondea para arriba)
-function diasHasta(iso: string): number {
-  const milisegundos = new Date(iso).getTime() - Date.now();
-  return Math.ceil(milisegundos / (1000 * 60 * 60 * 24));
-}
+import { diasHasta, formatearFecha } from "../utils/fechas";
 
 // columnas de cada tabla. dataIndex = q campo del objeto muestra
 const COLUMNAS_STOCK: TableColumnsType<StockProducto> = [
@@ -56,7 +46,7 @@ export default function Panel() {
   const [resumen, setResumen] = useState<ResumenPanel | null>(null);
 
   // useEffect con [] al final = se ejecuta UNA vez cuando aparece la pantalla
-  // aca pido los datos (hoy de ejemplo, despues a la api)
+  // aca pido los datos (cuando este la api van a venir de ahi)
   useEffect(() => {
     async function cargar() {
       const datos = await obtenerResumenPanel();

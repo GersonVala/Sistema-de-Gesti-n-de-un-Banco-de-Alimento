@@ -1,10 +1,13 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout";
-import EnConstruccion from "./components/EnConstruccion";
 import NotFound from "./routes/NotFound";
 import Login from "./routes/Login";
 import Panel from "./routes/Panel";
 import Donantes from "./routes/Donantes";
+import Organizaciones from "./routes/Organizaciones";
+import Donaciones from "./routes/Donaciones";
+import Entregas from "./routes/Entregas";
+import Campanias from "./routes/Campanias";
 
 // aca estan TODAS las rutas de la app, es como el "mapa" del front
 export default function App() {
@@ -21,12 +24,10 @@ export default function App() {
 
         <Route path="panel" element={<Panel />} />
         <Route path="donantes" element={<Donantes />} />
-
-        {/* estas todavia en construccion */}
-        <Route path="organizaciones" element={<EnConstruccion titulo="Organizaciones" />} />
-        <Route path="donaciones" element={<EnConstruccion titulo="Donaciones y stock" />} />
-        <Route path="entregas" element={<EnConstruccion titulo="Entregas" />} />
-        <Route path="campanias" element={<EnConstruccion titulo="Campañas" />} />
+        <Route path="organizaciones" element={<Organizaciones />} />
+        <Route path="donaciones" element={<Donaciones />} />
+        <Route path="entregas" element={<Entregas />} />
+        <Route path="campanias" element={<Campanias />} />
 
         {/* * = cualquier ruta q no exista arriba */}
         <Route path="*" element={<NotFound />} />
