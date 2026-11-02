@@ -3,6 +3,8 @@ import Layout from "./components/Layout";
 import EnConstruccion from "./components/EnConstruccion";
 import NotFound from "./routes/NotFound";
 import Login from "./routes/Login";
+import Panel from "./routes/Panel";
+import Donantes from "./routes/Donantes";
 
 // aca estan TODAS las rutas de la app, es como el "mapa" del front
 export default function App() {
@@ -17,9 +19,10 @@ export default function App() {
         {/* index = la ruta "/" pelada, la mando al panel. replace para q no quede en el historial */}
         <Route index element={<Navigate to="/panel" replace />} />
 
-        {/* por ahora todas en construccion, el panel y donantes se llenan en el paso 4 */}
-        <Route path="panel" element={<EnConstruccion titulo="Panel del coordinador" />} />
-        <Route path="donantes" element={<EnConstruccion titulo="Donantes" />} />
+        <Route path="panel" element={<Panel />} />
+        <Route path="donantes" element={<Donantes />} />
+
+        {/* estas todavia en construccion */}
         <Route path="organizaciones" element={<EnConstruccion titulo="Organizaciones" />} />
         <Route path="donaciones" element={<EnConstruccion titulo="Donaciones y stock" />} />
         <Route path="entregas" element={<EnConstruccion titulo="Entregas" />} />
