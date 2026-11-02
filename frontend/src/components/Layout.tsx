@@ -1,11 +1,12 @@
 // el Layout de antd lo renombro a AntLayout xq mi componente tambien se llama Layout
-import { Layout as AntLayout, Menu, Typography } from "antd";
+import { Layout as AntLayout, Button, Menu, Typography } from "antd";
 import {
   CarOutlined,
   DashboardOutlined,
   FlagOutlined,
   GiftOutlined,
   HomeOutlined,
+  LogoutOutlined,
   TeamOutlined,
 } from "@ant-design/icons";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
@@ -48,10 +49,23 @@ export default function Layout() {
       </Sider>
 
       <AntLayout>
-        <Header style={{ background: "#fff", padding: "0 24px" }}>
-          <Typography.Title level={4} style={{ margin: "16px 0" }}>
+        {/* flex + space-between: titulo a la izquierda y boton a la derecha */}
+        <Header
+          style={{
+            background: "#fff",
+            padding: "0 24px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <Typography.Title level={4} style={{ margin: 0 }}>
             Sistema de Gestión
           </Typography.Title>
+          {/* por ahora solo vuelve al login. cuando haya JWT aca tambien se borra el token */}
+          <Button icon={<LogoutOutlined />} onClick={() => navigate("/login")}>
+            Cerrar sesión
+          </Button>
         </Header>
 
         <Content style={{ margin: 24 }}>

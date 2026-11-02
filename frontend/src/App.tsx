@@ -2,11 +2,15 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout";
 import EnConstruccion from "./components/EnConstruccion";
 import NotFound from "./routes/NotFound";
+import Login from "./routes/Login";
 
 // aca estan TODAS las rutas de la app, es como el "mapa" del front
 export default function App() {
   return (
     <Routes>
+      {/* login va afuera del Layout para q se vea sin el menu */}
+      <Route path="login" element={<Login />} />
+
       {/* ruta "layout": no tiene path, solo envuelve a las de adentro con el menu */}
       {/* las rutas hijas se dibujan en el <Outlet /> del Layout */}
       <Route element={<Layout />}>
